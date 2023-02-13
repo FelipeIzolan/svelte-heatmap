@@ -1,6 +1,7 @@
 <rect
     data-date={stringifyDate(date)}
     data-value={value}
+    on:click={click}
     fill={color}
     height={size}
     rx={radius}
@@ -12,6 +13,7 @@
 <script>
 import { stringifyDate } from '../utils/date';
 
+export let click;
 export let color;
 export let date;
 export let radius;

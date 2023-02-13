@@ -1,6 +1,7 @@
 <g transform={`translate(${translation}, 0)`}>
     {#each days as day}
         <Cell
+            click={cellClick}
             color={day.color}
             date={day.date}
             radius={cellRadius}
@@ -25,7 +26,7 @@
 
 <script>
 import Cell from './Cell.svelte';
-import { getWeekIndex, stringifyDate } from '../utils/date';
+import { getWeekIndex } from '../utils/date';
 
 $: translation = (((7 * cellRect) - cellGap) + monthGap) * index;
 
@@ -33,6 +34,7 @@ export let cellGap;
 export let cellRadius;
 export let cellRect;
 export let cellSize;
+export let cellClick;
 export let days;
 export let fontColor;
 export let fontFamily;

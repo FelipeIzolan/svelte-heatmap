@@ -6,6 +6,7 @@
                 cellRadius={cellRadius}
                 cellRect={cellRect}
                 cellSize={cellSize}
+                cellClick={cellClick}
                 days={chunk}
                 fontColor={fontColor}
                 fontFamily={fontFamily}
@@ -36,6 +37,7 @@
                     cellRadius={cellRadius}
                     cellRect={cellRect}
                     cellSize={cellSize}
+                    cellClick={cellClick}
                     days={chunk}
                     index={index}
                     monthLabelHeight={monthLabelHeight}
@@ -69,6 +71,7 @@ export let allowOverflow = false;
 export let cellGap = 2;
 export let cellRadius = 0;
 export let cellSize = 10;
+export let cellClick = null;
 export let colors = ['#c6e48b', '#7bc96f', '#239a3b', '#196127'];
 export let data = [];
 export let dayLabelWidth = 20;

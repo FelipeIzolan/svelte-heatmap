@@ -71,6 +71,10 @@ Defines the radius of each cell. This should be a number relative to the `cellSi
 
 Defines the size of each cell.
 
+##### `cellClick`
+
+Defines a function to be executed on click.
+
 ##### `colors`
 
 Array of CSS colors to use for the chart, ordered from lowest to highest. Default colors match GitHub's contribution graph with `['#c6e48b', '#7bc96f', '#239a3b', '#196127']`.
