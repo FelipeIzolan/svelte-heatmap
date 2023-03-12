@@ -6,6 +6,10 @@ A light weight and customizable version of GitHub's contribution graph.
 
 ## 📦 Installation
 
+- clone `https://github.com/FelipeIzolan/svelte-heatmap.git`
+- add svelte-heatmap folder in your project folder.
+- `import SvelteHeatmap from "path/to/svelte-heatmap";`
+
 
 ## 🚀 Basic usage
 
@@ -78,7 +82,7 @@ Array of CSS colors to use for the chart, ordered from lowest to highest. Defaul
 
 Map object.
 
-key - YYYY-MM-DD (ISO standard)
+key - YYYY-MM-DD (ISO standard)\
 value - number
 
 ##### `dayLabelWidth`
