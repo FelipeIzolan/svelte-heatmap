@@ -68,8 +68,13 @@ export function normalizeDate(value) {
         return value;
     }
 
-    if (['number', 'string'].includes(typeof value)) {
-        return new Date(value);
+    if (typeof value == "string") {
+        let d = value.split("-");
+
+        if (d[1].startsWith("0")) d[1] = d[1].slice(1);
+        if (d[2].startsWith("0")) d[2] = d[2].slice(1);
+
+        return new Date(d.join("-"));
     }
 
     throw new Error('Invalid date value');

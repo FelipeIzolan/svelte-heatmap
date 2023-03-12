@@ -80,13 +80,13 @@ export function chunkWeeks({ allowOverflow, calendar, endDate, startDate }) {
 /**
  * Determine the first day rendered on the heatmap.
  *
- * @param {Object}              props
- * @param {Array<string>}       props.colors
- * @param {Array<Object>}       props.data
- * @param {string}              props.emptyColor
- * @param {Date|number|string}  props.endDate
- * @param {Date|number|string}  props.startDate
- * @param {string}              props.view
+ * @param {Object}                     props
+ * @param {Array<string>}              props.colors
+ * @param {Map<string,number>}         props.data
+ * @param {string}                     props.emptyColor
+ * @param {Date|number|string}         props.endDate
+ * @param {Date|number|string}         props.startDate
+ * @param {string}                     props.view
  *
  * @return {Date}
  */
@@ -157,11 +157,11 @@ export function getColor({ colors, max, value }) {
 /**
  * Aggregate the value of each day.
  *
- * @param {Object}          options
- * @param {Array<Object>}   options.data
- * @param {number}          options.offset
- * @param {number}          options.startDayOfMonth
- * @param {Date}            options.startDate
+ * @param {Object}                      options
+ * @param {Map<string,number>}          options.data
+ * @param {number}                      options.offset
+ * @param {number}                      options.startDayOfMonth
+ * @param {Date}                        options.startDate
  *
  * @return {Object}
  */
@@ -172,11 +172,12 @@ export function getDay({ data, offset, startDate, startDayOfMonth }) {
     const nextDate = new Date(date);
     nextDate.setDate(date.getDate() + 1);
 
-    const value = data.reduce((acc, obj) => {
-        const datapoint = normalizeDate(obj.date);
+    let value = 0
 
-        return datapoint >= date && datapoint < nextDate ? acc + obj.value : acc;
-    }, 0);
+    for (const [d, v] of data.entries()) {
+      const datapoint = normalizeDate(d);
+      value = datapoint >= date && datapoint < nextDate ? value + v  : value;
+    }
 
     return { date, value };
 }
