@@ -13,7 +13,7 @@ A light weight and customizable version of GitHub's contribution graph.
 
 ## 🚀 Basic usage
 
-To create a heatmap, pass `props` and a `target` to the `SvelteHeatmap` constructor.
+To create a heatmap, pass `props` to the `SvelteHeatmap` constructor.
 
 ```svelte
 <script>
