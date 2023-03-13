@@ -19,11 +19,11 @@ To create a heatmap, pass `props` to the `SvelteHeatmap` constructor.
 <script>
 import SvelteHeatmap from './svelte-heatmap';
 
-const start = new Date(); // begin
+const start = new Date(); // year begin
 start.setMonth(0, 1);
 start.setHours(0, 0, 0, 0);
 
-const end = new Date(); // end
+const end = new Date(); // year end
 end.setMonth(11, 30);
 
 const data = new Map();
@@ -36,7 +36,7 @@ data.set("2023-05-11", 4);
 </script>
 
 <SvelteHeatmap
-  data={$calendar.heatmap}
+  data={data}
   colors={['#404040', '#303030', '#202020', '#101010']}
   dayLabels={['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']}
   dayLabelWidth={10}
