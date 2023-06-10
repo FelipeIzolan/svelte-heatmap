@@ -4,6 +4,7 @@ import {
     getWeekEnd,
     getWeekStart,
     normalizeDate,
+    normalizeDateToISO
 } from './date';
 
 /**
@@ -169,14 +170,12 @@ export function getDay({ data, offset, startDate, startDayOfMonth }) {
     const date = new Date(startDate);
     date.setDate(startDayOfMonth + offset);
 
-    const nextDate = new Date(date);
-    nextDate.setDate(date.getDate() + 1);
-
     let value = 0
 
     for (const [d, v] of data.entries()) {
-      const datapoint = normalizeDate(d);
-      value = datapoint >= date && datapoint < nextDate ? value + v  : value;
+      if (d == normalizeDateToISO(date)) {
+        value += v;
+      }
     }
 
     return { date, value };

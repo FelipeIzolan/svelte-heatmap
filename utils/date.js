@@ -57,6 +57,17 @@ export function getWeekStart(date) {
 }
 
 /**
+ * Normalize to a ISO Date YYYY-MM-DD.
+ *
+ * @param {Date} value
+ *
+ * @return {string}
+ */
+export function normalizeDateToISO(value) {
+  return value.toISOString().split("T")[0];
+}
+
+/**
  * Normalize to a javascript Date object.
  *
  * @param {Date|number|string} value
